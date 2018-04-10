@@ -2,6 +2,8 @@
 
 Why have a custom Base64 decode function if PHP already provides the native `base64_decode` function? Well, some strict web hosts disable the native one to prevent exploits that use that method.
 
+This implementation is based on native PHP C source code (https://github.com/php/php-src/blob/master/ext/standard/base64.c). It is a slightly slower than the native `base64_decode`. Depending on you configuration it can handle large input (>1MO under 1 second).
+
 ### Usage
 
 Use `base64_decoder` as you would the standard `base64_decode` function.
